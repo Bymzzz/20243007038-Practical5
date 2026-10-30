@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="municipality_beijing">#D32F2F</color> <!-- 红色 -->
+    <color name="municipality_shanghai">#C2185B</color> <!-- 洋红色 -->
+    <color name="municipality_tianjin">#37474F</color> <!-- 炭灰色 -->
+    <color name="municipality_chongqing">#FF9800</color> <!-- 亮橙色 -->
+
+    <color name="color_textlight">#FFFFFF</color> <!-- 浅色字体（用于深色背景） -->
+    <color name="color_textdark">#212121</color> <!-- 深色字体（用于浅色背景） -->
+    <color name="color_defaultbackground">#F5F5F5</color> <!-- 默认背景色 -->
 </resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="municipalities_array">
+        <item>Beijing is the capital of China and a global center for politics, culture, and international exchange. It is famous for its rich history, including iconic landmarks like the Forbidden City, the Great Wall, and the Temple of Heaven. As a direct-administered municipality, it plays a crucial role in the nation\'s development. The city successfully hosted both the 2008 and 2022 Olympic Games, showcasing its modern capabilities alongside its ancient heritage. It is also a major hub for education and technology. </item>
+
+        <item>Shanghai is a major global financial center and the most populous city in China. Located at the mouth of the Yangtze River, it is known for its stunning skyline featuring the Oriental Pearl Tower and the historic Bund. This direct-administered municipality seamlessly blends traditional heritage with modern innovation. As a vital hub for international trade and commerce, Shanghai boasts the world\'s busiest container port. It is also a vibrant cultural metropolis, attracting millions of tourists and businesses from around the globe every year. </item>
+
+        <item>Chongqing is a sprawling, mountainous direct-administered municipality in southwest China. Often called the \"Mountain City,\" it is renowned for its dramatic topography, famous spicy hotpot cuisine, and the stunning confluence of the Yangtze and Jialing rivers. It serves as a significant industrial and transportation hub in western China. Historically, it served as the wartime capital during World War II. Today, this dynamic and rapidly growing metropolis is famous for its unique monorail system that passes directly through residential buildings and its breathtaking night views. </item>
+
+        <item>Tianjin is a coastal direct-administered municipality in northern China, located very close to Beijing. It is a major port city and a historical gateway for international trade and shipping. Known for its unique blend of traditional Chinese and European architecture, particularly in the historic Five Great Avenues area, Tianjin plays a key role in the economic development of the Bohai Rim region. The city also boasts the world\'s highest Ferris wheel, the Tianjin Eye, and serves as a major hub for high-speed rail and advanced manufacturing. </item>
+    </string-array>
+</resources>
