@@ -1,11 +1,12 @@
 package com.example.practicalfive;
-
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 public class Municipality extends AppCompatActivity {
 
@@ -27,8 +28,6 @@ public class Municipality extends AppCompatActivity {
 
         // 2. 接收从 MainActivity 传过来的城市名
         String incomingName = getIntent().getStringExtra("EXTRA_MUNICIPALITY");
-
-        // 3. 安全校验：如果传入数据不合法（或者为空），提示错误并关闭当前页面
         String validName = TextProcessor.processMunicipality(incomingName);
 
         if (validName == null) {
@@ -37,8 +36,57 @@ public class Municipality extends AppCompatActivity {
             return;
         }
 
-        // 4. 更新界面：把传过来的名字显示到顶部 TextView 上
+        // 3. 准备数据和变量
+        String[] infoArray = getResources().getStringArray(R.array.municipalities_array);
+
+        int colorResId = 0;
+        int imageResId = 0;
+        int arrayIndex = 0;
+
+        // 4. 根据城市名匹配对应的 颜色、图片 和 数组索引
+        // 注意：数组索引严格按照 arrays.xml 中的顺序：北京(0)、上海(1)、重庆(2)、天津(3)
+        switch (validName) {
+            case "Beijing":
+                colorResId = R.color.municipality_beijing;
+                imageResId = R.drawable.beijing;
+                arrayIndex = 0;
+                break;
+            case "Shanghai":
+                colorResId = R.color.municipality_shanghai;
+                imageResId = R.drawable.shanghai;
+                arrayIndex = 1;
+                break;
+            case "Chongqing":
+                colorResId = R.color.municipality_chongqing;
+                imageResId = R.drawable.chongqing;
+                arrayIndex = 2;
+                break;
+            case "Tianjin":
+                colorResId = R.color.municipality_tianjin;
+                imageResId = R.drawable.tianjin;
+                arrayIndex = 3;
+                break;
+        }
+
+        // 5. 获取具体的颜色值
+        int themeColor = ContextCompat.getColor(this, colorResId);
+        int lightTextColor = ContextCompat.getColor(this, R.color.color_textlight);
+
+        // 6. 动态更新 UI
+        // 设置城市名称：文字、背景色、文字颜色（白色，保证对比度）
         tvCityName.setText(validName);
-        tvCityInfo.setText("Data successfully received for " + validName + ".");
+        tvCityName.setBackgroundColor(themeColor);
+        tvCityName.setTextColor(lightTextColor);
+
+        // 设置城市图片
+        ivCityImage.setImageResource(imageResId);
+
+        // 设置信息介绍文字：内容、文字颜色（对应主题色）
+        tvCityInfo.setText(infoArray[arrayIndex]);
+        tvCityInfo.setTextColor(themeColor);
+
+        // 设置按钮背景色（使用 BackgroundTintList 改变按钮颜色）
+        btnVisitSite.setBackgroundTintList(ColorStateList.valueOf(themeColor));
+        btnVisitSite.setTextColor(lightTextColor);
     }
 }
