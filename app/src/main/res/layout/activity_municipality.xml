@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/color_defaultbackground">
+
+    <!-- 城市名称 -->
+    <TextView
+        android:id="@+id/tvCityName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:text="City Name"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <!-- 城市图片 -->
+    <ImageView
+        android:id="@+id/ivCityImage"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/chinese_municipalities" />
+
+    <!-- 使用 ScrollView 包裹信息，保证文字多的时候可以滚动 -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvCityInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Information about the city goes here..."
+            android:textSize="16sp"
+            android:lineSpacingExtra="4dp" />
+    </ScrollView>
+
+    <!-- 访问网站按钮 -->
+    <Button
+        android:id="@+id/btnVisitSite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Visit site"
+        android:textSize="18sp"
+        android:textColor="@color/color_textlight" />
+
+</LinearLayout>
+
+

@@ -1,7 +1,7 @@
 package com.example.practicalfive;
 
 import android.os.Bundle;
-
+import android.content.Intent;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -44,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Valid input: " + normalizedName, Toast.LENGTH_SHORT).show();
 
                     // 💡 这里就是以后要写 Intent 跳转的地方，等建好第二个页面再放开：
-                    /*
+
                     Intent intent = new Intent(MainActivity.this, Municipality.class);
                     intent.putExtra("EXTRA_MUNICIPALITY", normalizedName);
                     startActivity(intent);
-                    */
+
                 }
                 return true; // 表示事件已处理
             }
