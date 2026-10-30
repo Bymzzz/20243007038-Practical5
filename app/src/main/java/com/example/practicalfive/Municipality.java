@@ -1,5 +1,8 @@
 package com.example.practicalfive;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -42,6 +45,7 @@ public class Municipality extends AppCompatActivity {
         int colorResId = 0;
         int imageResId = 0;
         int arrayIndex = 0;
+        String websiteUrl = "";
 
         // 4. 根据城市名匹配对应的 颜色、图片 和 数组索引
         // 注意：数组索引严格按照 arrays.xml 中的顺序：北京(0)、上海(1)、重庆(2)、天津(3)
@@ -50,21 +54,25 @@ public class Municipality extends AppCompatActivity {
                 colorResId = R.color.municipality_beijing;
                 imageResId = R.drawable.beijing;
                 arrayIndex = 0;
+                websiteUrl = "https://english.beijing.gov.cn/";
                 break;
             case "Shanghai":
                 colorResId = R.color.municipality_shanghai;
                 imageResId = R.drawable.shanghai;
                 arrayIndex = 1;
+                websiteUrl = "https://english.shanghai.gov.cn/";
                 break;
             case "Chongqing":
                 colorResId = R.color.municipality_chongqing;
                 imageResId = R.drawable.chongqing;
                 arrayIndex = 2;
+                websiteUrl = "https://english.cq.gov.cn/";
                 break;
             case "Tianjin":
                 colorResId = R.color.municipality_tianjin;
                 imageResId = R.drawable.tianjin;
                 arrayIndex = 3;
+                websiteUrl = "https://en.tj.gov.cn/";
                 break;
         }
 
@@ -88,5 +96,19 @@ public class Municipality extends AppCompatActivity {
         // 设置按钮背景色（使用 BackgroundTintList 改变按钮颜色）
         btnVisitSite.setBackgroundTintList(ColorStateList.valueOf(themeColor));
         btnVisitSite.setTextColor(lightTextColor);
+        final String finalWebsiteUrl = websiteUrl;
+
+        btnVisitSite.setOnClickListener(v -> {
+            // 创建隐式 Intent，动作是 ACTION_VIEW，数据是网址
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(finalWebsiteUrl));
+            try {
+                startActivity(intent); // 让系统寻找浏览器并打开
+            } catch (ActivityNotFoundException e) {
+                // 如果用户的手机/模拟器上没有安装任何浏览器，会进入这里
+                Toast.makeText(Municipality.this, "No application found to open this website.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        // =================================================================
     }
+
 }
